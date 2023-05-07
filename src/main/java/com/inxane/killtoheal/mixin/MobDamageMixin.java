@@ -18,7 +18,7 @@ public class MobDamageMixin {
 		PlayerEntity player = tracker.getEntity().getWorld().getClosestPlayer(tracker.getEntity(), 3);
 		if (player != null && player != tracker.getEntity() && !player.isBlocking()) {
 			if (player.getWorld().getTime() - KillToHeal.hardDamage.getOrDefault(player, -101L) < 100) return;
-			if (tracker.getEntity().isDead()) {
+			if (originalHealth - damage <= 0.0) {
 				player.heal(16);
 			} else {
 				player.heal(1);
