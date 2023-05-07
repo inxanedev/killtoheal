@@ -1,7 +1,6 @@
 package com.inxane.killtoheal.mixin;
 
 import com.inxane.killtoheal.KillToHeal;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTracker;
 import net.minecraft.entity.player.PlayerEntity;
