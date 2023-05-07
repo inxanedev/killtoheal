@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "killtoheal",
+	"version": "${version}",
+	"name": "KillToHeal",
+	"description": "Heal from the deaths of close mobs",
+	"authors": [
+		"inxanedev"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/killtoheal/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.inxane.killtoheal.KillToHeal"
+		]
+	},
+	"mixins": [
+		"killtoheal.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"minecraft": "~1.19.2",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
