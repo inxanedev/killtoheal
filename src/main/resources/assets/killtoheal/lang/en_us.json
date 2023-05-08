@@ -1,4 +1,21 @@
 {
   "enchantment.killtoheal.bloodshed": "Bloodshed",
-  "killtoheal.actionBarHardDamageText": "HARD DAMAGE"
+  "killtoheal.actionBarHardDamageText": "HARD DAMAGE",
+  "text.config.killtoheal.title": "KillToHeal Config",
+  "text.config.killtoheal.option.levelOneDamageHealing": "Bloodshed I damage healing",
+  "text.config.killtoheal.option.levelTwoDamageHealing": "Bloodshed II damage healing",
+  "text.config.killtoheal.option.levelThreeDamageHealing": "Bloodshed III damage healing",
+  "text.config.killtoheal.option.levelOneKillHealing": "Bloodshed I kill healing",
+  "text.config.killtoheal.option.levelTwoKillHealing": "Bloodshed II kill healing",
+  "text.config.killtoheal.option.levelThreeKillHealing": "Bloodshed III kill healing",
+  "text.config.killtoheal.option.levelOneAbsorptionDuration": "Bloodshed I Absorption duration",
+  "text.config.killtoheal.option.levelTwoAbsorptionDuration": "Bloodshed II Absorption duration",
+  "text.config.killtoheal.option.levelThreeAbsorptionDuration": "Bloodshed III Absorption duration",
+  "text.config.killtoheal.option.levelOneAbsorptionAmplifier": "Bloodshed I Absorption amplifier",
+  "text.config.killtoheal.option.levelTwoAbsorptionAmplifier": "Bloodshed II Absorption amplifier",
+  "text.config.killtoheal.option.levelThreeAbsorptionAmplifier": "Bloodshed III Absorption amplifier",
+  "text.config.killtoheal.option.hardDamageTicks": "Hard damage duration in ticks (20 ticks = 1 second)",
+  "text.config.killtoheal.option.enableHardDamage": "Enable hard damage",
+  "text.config.killtoheal.option.enableMod": "Enable mod",
+  "text.config.killtoheal.option.simpleMode": "Toggle simple mode (bloodshed not required)"
 }

@@ -13,6 +13,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ShieldMixin {
 	@Inject(at = @At("TAIL"), method = "takeShieldHit")
 	private void onShieldHit(LivingEntity attacker, CallbackInfo ci) {
+		if (!KillToHeal.CONFIG.enableHardDamage() || !KillToHeal.CONFIG.enableMod()) return;
+
 		PlayerEntity player = (PlayerEntity)(Object)this;
 
 		KillToHeal.hardDamage.put(player, player.getWorld().getTime());

@@ -17,15 +17,24 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class DamageMixin {
 	@Inject(at = @At("TAIL"), method = "onDamage")
 	private void onDamage(DamageSource damageSource, float originalHealth, float damage, CallbackInfo ci) {
+		if (!KillToHeal.CONFIG.enableMod()) return;
+
 		DamageTracker tracker = (DamageTracker)(Object)this;
 
 		PlayerEntity player = tracker.getEntity().getWorld().getClosestPlayer(tracker.getEntity(), 3);
 		if (player != null && tracker.getEntity() != player) {
-			ItemStack heldItem = player.getInventory().getMainHandStack();
-			if (heldItem.getItem() instanceof SwordItem) {
-				int bloodshedLevel = EnchantmentHelper.getLevel(KillToHeal.BLOODSHED, heldItem);
-				if (bloodshedLevel != 0) {
-					BloodshedEnchantment.doBloodshed(player, tracker.getEntity(), bloodshedLevel, (originalHealth - damage) <= 0.0f);
+			if (KillToHeal.CONFIG.simpleMode()) {
+				BloodshedEnchantment.doBloodshed(player, tracker.getEntity(), 1, (originalHealth - damage) <= 0.0f);
+				BloodshedEnchantment.doBloodshed(player, tracker.getEntity(), 1, (originalHealth - damage) <= 0.0f);
+			} else {
+				if (damageSource.getAttacker() instanceof PlayerEntity p1 && p1 == player) return;
+
+				ItemStack heldItem = player.getInventory().getMainHandStack();
+				if (heldItem.getItem() instanceof SwordItem) {
+					int bloodshedLevel = EnchantmentHelper.getLevel(KillToHeal.BLOODSHED, heldItem);
+					if (bloodshedLevel != 0) {
+						BloodshedEnchantment.doBloodshed(player, tracker.getEntity(), bloodshedLevel, (originalHealth - damage) <= 0.0f);
+					}
 				}
 			}
 		}

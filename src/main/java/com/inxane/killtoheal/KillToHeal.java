@@ -1,5 +1,6 @@
 package com.inxane.killtoheal;
 
+import com.inxane.killtoheal.config.ModConfig;
 import com.inxane.killtoheal.enchantments.BloodshedEnchantment;
 import net.fabricmc.api.ModInitializer;
 
@@ -18,6 +19,7 @@ public class KillToHeal implements ModInitializer {
     public static HashMap<PlayerEntity, Long> hardDamage = new HashMap<>();
 
     public static Enchantment BLOODSHED = new BloodshedEnchantment();
+    public static final ModConfig CONFIG = ModConfig.createAndLoad();
 
     @Override
     public void onInitialize() {
