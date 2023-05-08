@@ -3,7 +3,8 @@
   "package": "com.inxane.killtoheal.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ShieldMixin"
+    "ShieldMixin",
+    "DamageMixin"
   ],
   "injectors": {
     "defaultRequire": 1

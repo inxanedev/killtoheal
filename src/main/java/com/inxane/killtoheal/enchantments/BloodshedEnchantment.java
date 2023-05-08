@@ -20,13 +20,12 @@ public class BloodshedEnchantment extends Enchantment {
         return 3;
     }
 
-    @Override
-    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
+    public static void doBloodshed(LivingEntity user, Entity target, int level, boolean killed) {
         if (target instanceof LivingEntity entity && user instanceof PlayerEntity player && entity != player && !player.isBlocking()) {
             if (player.getWorld().getTime() - KillToHeal.hardDamage.getOrDefault(player, -101L) < 100)
                 return;
 
-            if (entity.isDead()) {
+            if (entity.isDead() || killed) {
                 if (level == 1) {
                     // i have no idea why i have to divide this by two
                     // onTargetDamaged seems to be called twice for no reason
@@ -43,5 +42,10 @@ public class BloodshedEnchantment extends Enchantment {
                 player.heal(level / 2.0f);
             }
         }
+    }
+
+    @Override
+    public void onTargetDamaged(LivingEntity user, Entity target, int level) {
+        doBloodshed(user, target, level, false);
     }
 }
