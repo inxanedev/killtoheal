@@ -16,11 +16,6 @@ public class BloodshedEnchantment extends Enchantment {
     }
 
     @Override
-    public int getMinPower(int level) {
-        return 1;
-    }
-
-    @Override
     public int getMaxLevel() {
         return 3;
     }
